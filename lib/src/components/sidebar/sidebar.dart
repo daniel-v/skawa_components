@@ -1,4 +1,4 @@
-import 'package:angular2/core.dart';
+import 'package:angular/core.dart';
 import 'package:angular_components/src/model/ui/toggle.dart';
 
 /// Sidebar. [See more at](https://material.io/guidelines/layout/structure.html#structure-side-nav)

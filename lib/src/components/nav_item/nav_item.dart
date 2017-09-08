@@ -1,4 +1,5 @@
-import 'package:angular2/angular2.dart';
+import 'dart:html';
+import 'package:angular/angular.dart';
 
 import '../sidebar_item/sidebar_item.dart';
 import 'package:angular_components/src/components/button_decorator/button_decorator.dart';
@@ -39,43 +40,33 @@ import 'package:angular_components/src/components/material_ripple/material_rippl
       MaterialRippleComponent,
       NgClass,
     ],
-    inputs: const ['link', 'icon', 'disabled', 'textOnly', 'fullWidth'],
-    outputs: const ['trigger'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: const [
       const Provider(ButtonDirective, useExisting: SkawaNavItemComponent)
     ],
     preserveWhitespace: false,
     host: const {
-      '[class.is-disabled]': 'disabled',
-      '[attr.aria-disabled]': 'disabledStr',
       '[attr.textOnly]': 'textOnly',
       '[attr.fullWidth]': 'fullWidth',
-      '(mousedown)': r'onMouseDown($event)',
-      '(mouseup)': r'onMouseUp($event)',
-      '(mouseenter)': r'onMouseEnter()',
-      '(mouseout)': r'onMouseOut()',
-      '(click)': r'handleClick($event)',
-      '(keypress)': r'handleKeyPress($event)',
-      '(focus)': r'onFocus($event)',
-      '(blur)': r'onBlur($event)',
-      'role': 'button',
       'animated': 'true',
     })
 class SkawaNavItemComponent extends MaterialButtonBase with TextOnlyMixin {
   /// Link to navigate to
+  @Input()
   String link;
 
   /// Glyph name to use as icon
+  @Input()
   String icon;
 
   bool hovering = false;
 
+  @Input()
   var fullWidth;
 
   final ChangeDetectorRef _changeDetector;
 
-  SkawaNavItemComponent(ElementRef element, this._changeDetector)
+  SkawaNavItemComponent(HtmlElement element, this._changeDetector)
       : super(element);
 
   @override
@@ -83,10 +74,12 @@ class SkawaNavItemComponent extends MaterialButtonBase with TextOnlyMixin {
     _changeDetector.markForCheck();
   }
 
+  @HostListener('mouseenter')
   void onMouseEnter() {
     hovering = true;
   }
 
+  @HostListener('mouseout')
   void onMouseOut() {
     hovering = false;
   }

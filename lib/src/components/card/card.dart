@@ -1,4 +1,4 @@
-import 'package:angular2/core.dart';
+import 'package:angular/core.dart';
 
 import 'card_directives.dart';
 import 'card_actions.dart';
@@ -63,7 +63,6 @@ class SkawaCardComponent {
 @Component(
     selector: 'skawa-card-content',
     template: '<ng-content></ng-content>',
-    inputs: const ['collapsed'],
     styleUrls: const ['card_content.css'],
     changeDetection: ChangeDetectionStrategy.OnPush)
 class SkawaCardContentComponent {
@@ -74,6 +73,7 @@ class SkawaCardContentComponent {
 
   SkawaCardContentComponent(this.parentCard);
 
+  @Input()
   var collapsed;
 
   @HostBinding('class.skawa-collapsed')

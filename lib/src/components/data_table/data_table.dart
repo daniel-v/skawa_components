@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:angular2/angular2.dart';
-import 'package:angular2/src/common/pipes/invalid_pipe_argument_exception.dart';
+import 'package:angular/angular.dart';
+import 'package:angular/src/common/pipes/invalid_pipe_argument_exception.dart';
 import 'package:angular_components/src/components/material_checkbox/material_checkbox.dart';
 import 'package:angular_components/src/components/dynamic_component/dynamic_component.dart';
 

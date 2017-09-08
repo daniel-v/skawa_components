@@ -1,4 +1,4 @@
-import 'package:angular2/core.dart';
+import 'package:angular/core.dart';
 
 import 'card.dart';
 
@@ -9,7 +9,7 @@ import 'card.dart';
 ///     <skawa-card>
 ///        <skawa-card-actions>
 ///          <material-button icon>
-///            <glyph icon="android"></glyph>
+///            <material-icon icon="android"><material-icon>
 ///          </material-button>
 ///        </skawa-card-actions>
 ///     </skawa-card>

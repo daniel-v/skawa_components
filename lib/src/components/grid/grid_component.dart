@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:html';
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 import 'package:skawa_components/src/base_implementations/grid/grid.dart';
 
 /// __Inputs__:
@@ -13,7 +13,6 @@ import 'package:skawa_components/src/base_implementations/grid/grid.dart';
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: const ['grid_component.css'],
   directives: const [GridTileDirective],
-  inputs: const ['gridGutter'],
 )
 class GridComponent extends GridBase implements AfterViewInit, OnInit {
 
@@ -24,6 +23,7 @@ class GridComponent extends GridBase implements AfterViewInit, OnInit {
   @override
   QueryList<GridTile> tiles;
 
+  @Input()
   String gridGutter = '16';
 
   @override

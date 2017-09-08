@@ -1,7 +1,7 @@
 @Tags(const ['aot'])
 @TestOn('browser')
 import 'dart:async';
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:pageloader/html.dart';
 import 'package:pageloader/src/annotations.dart';
@@ -16,7 +16,7 @@ Future main() async {
   group('Card | ', () {
     test('initialization a raw card', () async {
       final fixture = await new NgTestBed<CardTestComponent>().create();
-      final pageObject = await fixture.resolvePageObject/*<TestPO>*/(TestPO);
+      expect(await fixture.resolvePageObject<TestPO>(TestPO), const isInstanceOf<TestPO>());
     });
     test('initialization a card with action and content', () async {
       final fixture = await new NgTestBed<CardTestComponent>().create(

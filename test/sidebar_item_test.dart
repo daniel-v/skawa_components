@@ -1,13 +1,14 @@
 @Tags(const ['aot'])
 @TestOn('browser')
 import 'dart:async';
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:pageloader/html.dart';
 import 'package:pageloader/src/annotations.dart';
 import 'package:skawa_components/src/components/sidebar_item/sidebar_item.dart';
 import 'package:test/test.dart';
 import 'package:pageloader/objects.dart';
+import 'shared/page_objects/material_icon.dart';
 
 @AngularEntrypoint()
 Future main() async {
@@ -34,7 +35,7 @@ Future main() async {
         TestPO,
       );
       expect(
-          await (await pageObject.sideBarItemList.glyph).rootElement.innerText,
+          await (await pageObject.sideBarItemList.icon).rootElement.innerText,
           'alarm');
       expect(
           await pageObject.sideBarItemList.span.classes.contains('text-only'),
@@ -94,12 +95,6 @@ class SidebarItemPO {
   @ByTagName('span')
   PageLoaderElement span;
 
-  Future<GlyphPO> get glyph =>
-      loader.getInstance(GlyphPO, loader.globalContext);
-}
-
-@ByTagName('glyph')
-class GlyphPO {
-  @root
-  PageLoaderElement rootElement;
+  Future<MaterialIconPO> get icon =>
+      loader.getInstance(MaterialIconPO, loader.globalContext);
 }

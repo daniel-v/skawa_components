@@ -1,5 +1,5 @@
-import 'package:angular2/angular2.dart';
-import 'package:angular_components/src/components/glyph/glyph.dart';
+import 'package:angular/angular.dart';
+import 'package:angular_components/src/components/material_icon/material_icon.dart';
 import '../../util/attribute.dart' as attrib;
 
 /// Toolbar item. See more [about normal lists](https://material.io/guidelines/components/lists.html#) or
@@ -24,16 +24,17 @@ import '../../util/attribute.dart' as attrib;
     templateUrl: 'sidebar_item.html',
     styleUrls: const ['sidebar_item.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    inputs: const ['icon', 'textOnly'],
-    directives: const [GlyphComponent, NgIf, NgClass],
+    directives: const [MaterialIconComponent, NgIf, NgClass],
     host: const {
       '[attr.textOnly]': 'textOnly',
     })
 class SkawaSidebarItemComponent extends Object with TextOnlyMixin {
+  @Input()
   String icon;
 }
 
 abstract class TextOnlyMixin {
+  @Input()
   var textOnly;
 
   bool get isTextOnly => attrib.isPresent(textOnly);

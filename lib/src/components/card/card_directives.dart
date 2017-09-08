@@ -1,4 +1,4 @@
-import 'package:angular2/core.dart';
+import 'package:angular/core.dart';
 
 /// The three following Directive should be used only inside a [SkawaCardHeaderComponent].
 /// The [SkawaCardHeaderTitleDirective] should contain the title.
@@ -10,7 +10,7 @@ import 'package:angular2/core.dart';
 ///     <skawa-card>
 ///       <skawa-card-header>
 ///         <skawa-header-image>
-///           <glyph icon="android"></glyph>
+///           <material-icon icon="android"><material-icon>
 ///         </skawa-header-image>
 ///         <skawa-header-title>
 ///            The card title.

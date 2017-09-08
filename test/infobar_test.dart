@@ -1,7 +1,7 @@
 @Tags(const ['aot'])
 @TestOn('browser')
 import 'dart:async';
-import 'package:angular2/angular2.dart';
+import 'package:angular/angular.dart';
 import 'package:angular_test/angular_test.dart';
 import 'package:pageloader/html.dart';
 import 'package:pageloader/src/annotations.dart';
@@ -18,7 +18,7 @@ Future main() async {
         TestPO,
       );
       expect(await pageObject.trigger.innerText, '0');
-      expect(await pageObject.infobar.glyph.innerText, '');
+      expect(await pageObject.infobar.icon.innerText, '');
     });
     test('initialization with icon', () async {
       final fixture = await new NgTestBed<InfobarTestComponent>().create();
@@ -29,7 +29,7 @@ Future main() async {
         testElement.icon = 'code';
       });
       expect(await pageObject.trigger.innerText, 0.toString());
-      expect(await pageObject.infobar.glyph.innerText, 'code');
+      expect(await pageObject.infobar.icon.innerText, 'code');
     });
     test('initialization with url', () async {
       final fixture = await new NgTestBed<InfobarTestComponent>().create();
@@ -42,7 +42,7 @@ Future main() async {
       expect(await pageObject.trigger.innerText, 0.toString());
       expect(await pageObject.infobar.materialButton.attributes['title'],
           'https://github.com/skawa-universe/skawa_components/');
-      expect(await pageObject.infobar.glyph.innerText, '');
+      expect(await pageObject.infobar.icon.innerText, '');
     });
     test('initialization with url and url', () async {
       final fixture = await new NgTestBed<InfobarTestComponent>().create();
@@ -56,7 +56,7 @@ Future main() async {
       expect(await pageObject.trigger.innerText, 0.toString());
       expect(await pageObject.infobar.materialButton.attributes['title'],
           'https://github.com/skawa-universe/skawa_components/');
-      expect(await pageObject.infobar.glyph.innerText, 'code');
+      expect(await pageObject.infobar.icon.innerText, 'code');
     });
     test('initialization with url then click 1X on the infobar button',
         () async {
@@ -71,7 +71,7 @@ Future main() async {
       expect(await pageObject.trigger.innerText, 1.toString());
       expect(await pageObject.infobar.materialButton.attributes['title'],
           'https://github.com/skawa-universe/skawa_components/');
-      expect(await pageObject.infobar.glyph.innerText, '');
+      expect(await pageObject.infobar.icon.innerText, '');
     });
     test(' with url then click 4X on the infobar button', () async {
       final fixture = await new NgTestBed<InfobarTestComponent>().create();
@@ -84,7 +84,7 @@ Future main() async {
       await pageObject.infobar.materialButton.click();
       expect(await pageObject.trigger.innerText, 4.toString());
       expect(await pageObject.infobar.materialButton.attributes['title'], '');
-      expect(await pageObject.infobar.glyph.innerText, '');
+      expect(await pageObject.infobar.icon.innerText, '');
     });
   });
 }
@@ -123,6 +123,6 @@ class InforbarPO {
   @ByTagName('material-button')
   PageLoaderElement materialButton;
 
-  @ByTagName('glyph')
-  PageLoaderElement glyph;
+  @ByTagName('material-icon')
+  PageLoaderElement icon;
 }
